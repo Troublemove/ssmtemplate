@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User findByUsername(String username) {
-		return dao.findByUsername("admin");
+		return dao.findByUsername(username);
 	}
 
 	@Override
