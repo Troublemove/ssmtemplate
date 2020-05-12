@@ -26,13 +26,13 @@
 
         var template =
             '<div class="page-tabs">' +
-            '<a href="#" class="roll-nav roll-nav-left"><span class="fa fa-angle-double-left"></span></a>' +
+            '<a href="javascript:void(0);" class="roll-nav roll-nav-left"><span class="fa fa-angle-double-left"></span></a>' +
             '<div class="content-tabs">' +
             '<div class="content-tabs-container">' +
             '<ul class="nav nav-tabs"></ul>' +
             '</div>' +
             '</div>' +
-            '<a href="#" class="roll-nav roll-nav-right"><span class="fa fa-angle-double-right"></span></a>' +
+            '<a href="javascript:void(0);" class="roll-nav roll-nav-right"><span class="fa fa-angle-double-right"></span></a>' +
             '<div class="dropdown roll-nav right-nav-list">' +
             '<a href="#" class="dropdown-toggle" data-toggle="dropdown">' +
             '<span class="tab-down"></span></a>' +

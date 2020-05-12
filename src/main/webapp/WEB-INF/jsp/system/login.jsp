@@ -10,10 +10,8 @@
 	<link rel="stylesheet" type="text/css" href="static/css/login/login.css">
 	<!--必要样式-->
 	<link rel="stylesheet" type="text/css" href="static/css/login/component.css">
+	
 	<script language="JavaScript"> 
-		if (window != top) {
-			top.location.href = location.href; 
-		}
 	</script>
 </head>
 <body>
@@ -22,11 +20,11 @@
 			<div id="large-header" class="large-header">
 				<canvas id="demo-canvas"></canvas>
 				<div class="logo_box">
-					<h3>欢迎你</h3>
-					<form action="login" name="f" method="post">
+					<h3>登录</h3>
+					<form name="form">
 						<div class="input_outer">
 							<span class="u_user"></span>
-							<input name="logname" class="text" style="color: #FFFFFF !important" value="" type="text" placeholder="请输入账户">
+							<input name="logname" class="text" value="" type="text" placeholder="请输入用户名" data-toggle="tooltip" data-placement="right" title="用户不存在">
 						</div>
 						<div class="input_outer">
 							<span class="us_uer"></span>
@@ -40,8 +38,8 @@
 								<img class="imgcode" src="captcha/captchaImage" width="45%" height="46px" style="margin-left:15px;">
 							</a>
 						</div>
-						<button class="btn btn-success btn-block" id="btnSubmit" type="submit">登录</button>
-					</form>
+						<button class="btn btn-success btn-block" id="btnSubmit" data-loading-text="登录中...">登录</button>
+					</from>
 				</div>
 			</div>
 		</div>

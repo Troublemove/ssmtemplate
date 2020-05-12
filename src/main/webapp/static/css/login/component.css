@@ -50,6 +50,9 @@
 	position: relative;
 	border: rgba(255,255,255,0.2) 2px solid !important;
 }
+input[name='logname'] {
+	color: #FFFFFF !important;
+}
 input[name='logpass'] {
 	color: #FFFFFF !important;
 	position:absolute;
