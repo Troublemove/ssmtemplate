@@ -4,7 +4,7 @@
 <head>
 	<%@include file="/WEB-INF/jsp/base/basecss.jsp" %>
     <%@include file="/WEB-INF/jsp/base/basejs.jsp" %>
-	<title>ssm网</title>
+	<title>ssm测试首页</title>
 	
 	<link rel="stylesheet" type="text/css" href="static/css/base/jquery.scrollbar.css">
 	<link rel="stylesheet" type="text/css" href="static/css/nth-tabs/nth-tabs.min.css">
