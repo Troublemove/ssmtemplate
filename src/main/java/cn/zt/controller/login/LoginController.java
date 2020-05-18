@@ -31,28 +31,29 @@ public class LoginController {
 	 */
 	@RequestMapping(value = "/login")
 	public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
-		if (null == request.getParameter("logname")) {
-			
-		}
-		String userName = StringUtils.trim(request.getParameter("logname"));//获取登录页的用户名
-		String userPass = StringUtils.trim(request.getParameter("logpass"));//获取登录页的密码
-		String captcha = StringUtils.trim(request.getParameter("logcaptcha"));//获取登录页的验证码
+		String userName = request.getParameter("logname");//获取登录页的用户名
+		String userPass = request.getParameter("logpass");//获取登录页的密码
+		String captcha = request.getParameter("logcaptcha");//获取登录页的验证码
 		
 		HttpSession session = request.getSession();
 		
 		User user = userService.findByUsername(userName);
-		
-		if (StringUtils.isEmpty(userName) || !user.getPassword().equals(userPass) || StringUtils.isEmpty(captcha)) {
-			log.info("login falure");
+		if (user != null) {
+			if (user.getPassword().equals(userPass) && session.getAttribute(Constants.KAPTCHA_SESSION_KEY).equals(captcha)) {
+				log.info("login success");
+				session.removeAttribute(Constants.KAPTCHA_SESSION_KEY);
+				
+				ModelAndView mav = new ModelAndView();
+				mav.setViewName("redirect:/mainJsp");
+				return mav;
+			} else {
+				log.info("login falure");
+				return new ModelAndView("system/login");
+			}
+		} else {// 用户不存在
 			return new ModelAndView("system/login");
-		} else {
-			log.info("login success");
-			session.removeAttribute(Constants.KAPTCHA_SESSION_KEY);
-			
-			ModelAndView mav = new ModelAndView();
-			mav.setViewName("redirect:/mainJsp");
-			return mav;
 		}
+		
 	}
 	
 	/**
@@ -60,11 +61,12 @@ public class LoginController {
 	 * @return
 	 */
 	@RequestMapping(value="/mainJsp")
-	public ModelAndView index() {
-		log.info("login to index");
+	public ModelAndView toMain() {
+		log.info("login to main");
 		ModelAndView mv = new ModelAndView();
 		
 		mv.setViewName("system/main");
         return mv;
 	}
+	
 }

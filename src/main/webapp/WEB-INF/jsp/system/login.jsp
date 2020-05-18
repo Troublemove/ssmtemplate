@@ -21,25 +21,26 @@
 				<canvas id="demo-canvas"></canvas>
 				<div class="logo_box">
 					<h3>登录</h3>
-					<form name="form">
+					<div id="loginForm">
 						<div class="input_outer">
 							<span class="u_user"></span>
 							<input name="logname" class="text" value="" type="text" placeholder="请输入用户名" data-toggle="tooltip" data-placement="right" title="用户不存在">
 						</div>
 						<div class="input_outer">
 							<span class="us_uer"></span>
-							<input name="logpass" class="text" type="password" value="" placeholder="请输入密码">
+							<input name="logpass" class="text" type="password" value="" placeholder="请输入密码" data-toggle="tooltip" data-placement="right" title="请输入有效密码">
 						</div>
 						<div>
 							<div class="input_outer" style="width:48% !important;float: left;">
-								<input name="logcaptcha" class="text" value="" type="text" maxlength="4" placeholder="验证码">
+								<input name="logcaptcha" class="text" value="" type="text" maxlength="4" placeholder="验证码" data-toggle="tooltip" data-placement="right" title="请输入验证码">
 							</div>
 							<a href="javascript:void(0);" title="点击更换验证码">
 								<img class="imgcode" src="captcha/captchaImage" width="45%" height="46px" style="margin-left:15px;">
 							</a>
 						</div>
 						<button class="btn btn-success btn-block" id="btnSubmit" data-loading-text="登录中...">登录</button>
-					</from>
+						<button class="btn btn-warning btn-block" id="btnRegister" onclick="toRegister">注册</button>
+					</div>
 				</div>
 			</div>
 		</div>
