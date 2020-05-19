@@ -1,5 +1,7 @@
 package cn.zt.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import cn.zt.entity.User;
@@ -8,5 +10,5 @@ import cn.zt.entity.User;
 public interface UserDao {
 	public User findByUsername(String username);
 	
-	public int countUser();
+	public List<User> findAllUser();
 }

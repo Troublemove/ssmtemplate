@@ -8,8 +8,8 @@
 		SELECT * FROM user WHERE username = #{username}
 	</select>
 	
-	<select id="countUser" resultType="Integer">
-		select count(id) from user
+	<select id="findAllUser" resultType="User">
+		select * from user
 	</select>
 	
 </mapper>

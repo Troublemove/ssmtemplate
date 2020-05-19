@@ -22,9 +22,4 @@ public class TestUser {
 		System.out.println(u);
 	}
 	
-	@Test
-	public void testCountUser() {
-		Integer u = userDao.countUser();
-		System.out.println(u);
-	}
 }
