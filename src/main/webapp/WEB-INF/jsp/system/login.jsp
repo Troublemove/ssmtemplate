@@ -38,7 +38,7 @@
 								<img class="imgcode" src="captcha/captchaImage" width="45%" height="46px" style="margin-left:15px;">
 							</a>
 						</div>
-						<button class="btn btn-success btn-block" id="btnSubmit" data-loading-text="登录中...">登录</button>
+						<button class="btn btn-success btn-block" id="btnSubmit" onclick="tologin" data-loading-text="登录中...">登录</button>
 						<button class="btn btn-warning btn-block" id="btnRegister" onclick="toRegister">注册</button>
 					</div>
 				</div>

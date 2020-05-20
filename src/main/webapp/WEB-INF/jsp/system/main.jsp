@@ -19,7 +19,7 @@
 	    	<div class="lyear-layout-sidebar-scroll">
 				<nav class="sidebar-main">
 					<ul class="nav nav-drawer">
-						<li class="nav-item active"> <a class="multitabs" href="#"><i class="mdi mdi-home"></i> <span>后台首页</span></a>
+						<li class="nav-item active"> <a class="multitabs" href="http://www.baidu.com"><i class="mdi mdi-home"></i> <span>后台首页</span></a>
 						</li>
 						<li class="nav-item nav-item-has-subnav">
 							<a href="javascript:void(0)"><i class="mdi mdi-palette"></i> <span>系统设置</span></a>
@@ -50,8 +50,8 @@
 					<ul class="topbar-right">
 						<li class="dropdown dropdown-profile">
 							<a href="javascript:void(0)" data-toggle="dropdown">
-								<img class="img-avatar img-avatar-48 m-r-10" src="images/users/avatar.jpg"/>
-								<span>笔下光年 <span class="caret"></span></span>
+								<!-- <img class="img-avatar img-avatar-48 m-r-10" src="images/users/avatar.jpg"/> -->
+								<span>Welcome! <shiro:principal property='currentUser'></shiro:principal> <span class="caret"></span></span>
 							</a>
 							<ul class="dropdown-menu dropdown-menu-right">
 								<li> <a class="multitabs" data-url="lyear_pages_profile.html" href="javascript:void(0)"><i class="mdi mdi-account"></i>
@@ -60,7 +60,7 @@
 										修改密码</a> </li>
 								<li> <a href="javascript:void(0)"><i class="mdi mdi-delete"></i> 清空缓存</a></li>
 								<li class="divider"></li>
-								<li> <a href="lyear_pages_login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
+								<li> <a href="logout"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
 							</ul>
 						</li>
 						<!--切换主题配色-->

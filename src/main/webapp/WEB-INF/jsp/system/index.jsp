@@ -7,17 +7,19 @@
 	<title>ssm测试首页</title>
 	
 	<!-- live2d -->
+	<!-- 
 	<link rel="stylesheet" type="text/css" href="static/other/live2d/waifu.css">
-	
+	 -->
 </head>
 <body>
 	<div style="background:red;width:100px;height:100px;"></div>
-	<div class="waifu">
-        <!-- <div class="waifu-tips"></div> -->
+	<!--
+	 <div class="waifu">
+        <div class="waifu-tips"></div>
         <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
-		<!-- 添加菜单 -->
+		添加菜单
         <div class="waifu-tool">
-            <!-- <span class="fui-home"></span> -->
+            <span class="fui-home"></span>
             <span class="fui-chat"></span>
             <span class="fui-eye"></span>
             <span class="fui-user"></span>
@@ -26,14 +28,14 @@
             <span class="fui-cross"></span>
         </div>
     </div>
-    
+     -->
+    <!-- 
     <script type="text/javascript" src="static/other/live2d/waifu-tips.js"></script>
     <script type="text/javascript" src="static/other/live2d/live2d.js"></script>
     <script type="text/javascript" src="static/other/live2d/autoload.js"></script>
+     -->
     
     <script type="text/javascript">
-		// live2d
-		//initModel();
 	</script>
 </body>
 </html>

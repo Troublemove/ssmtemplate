@@ -20,9 +20,9 @@ window.live2d_settings = Array(); /*
 
 
 // 后端接口
-live2d_settings['modelAPI']             = '//live2d.fghrsh.net/api/';   // 自建 API 修改这里
+live2d_settings['modelAPI']             = 'http://live2d.fghrsh.net/api/';   // 自建 API 修改这里
 live2d_settings['tipsMessage']          = 'waifu-tips.json';            // 同目录下可省略路径
-live2d_settings['hitokotoAPI']          = 'lwl12.com';                  // 一言 API，可选 'lwl12.com', 'hitokoto.cn', 'jinrishici.com'(古诗词)
+live2d_settings['hitokotoAPI']          = 'http://lwl12.com';                  // 一言 API，可选 'lwl12.com', 'hitokoto.cn', 'jinrishici.com'(古诗词)
 
 // 默认模型
 live2d_settings['modelId']              = 5;            // 默认模型 ID，可在 F12 控制台找到
@@ -303,6 +303,7 @@ function loadTipsMessage(result) {
             cache: modelRandMode == 'switch' ? true : false,
             url: live2d_settings.modelAPI+modelRandMode+'/?id='+modelId,
             dataType: "json",
+            crossDomain: true,
             success: function(result) {
                 loadModel(result.model['id']);
                 var message = result.model['message'];
@@ -321,6 +322,7 @@ function loadTipsMessage(result) {
             cache: modelTexturesRandMode == 'switch' ? true : false,
             url: live2d_settings.modelAPI+modelTexturesRandMode+'_textures/?id='+modelId+'-'+modelTexturesId,
             dataType: "json",
+            crossDomain: true,
             success: function(result) {
                 if (result.textures['id'] == 1 && (modelTexturesId == 1 || modelTexturesId == 0))
                     showMessage(waifu_tips.load_rand_textures[0], 3000, true);
