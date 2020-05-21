@@ -20,7 +20,6 @@
         	authc：必须是登录之后才能进行访问，不包括remember me
         	user：登录用户才可以访问，包含remember me
         	perms：指定过滤规则，这个一般是扩展使用，不会使用原生的
-        	
          -->
         <property name="filterChainDefinitions">
             <value>

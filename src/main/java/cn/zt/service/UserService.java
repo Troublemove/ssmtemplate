@@ -1,6 +1,6 @@
 package cn.zt.service;
 
-import java.util.List;
+import com.github.pagehelper.PageInfo;
 
 import cn.zt.entity.User;
 
@@ -15,8 +15,10 @@ public interface UserService {
 	
 	/**
 	 * 查找所有用户信息
+	 * @param pageNum  第几页
+	 * @param pageSize 一页显示数
 	 * @param username
 	 * @return
 	 */
-	List<User> findAllUser();
+	PageInfo<User> findAllUser(int pageNum, int pageSize);
 }

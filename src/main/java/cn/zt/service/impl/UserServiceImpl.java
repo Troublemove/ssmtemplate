@@ -6,6 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+
 import cn.zt.dao.UserDao;
 import cn.zt.entity.User;
 import cn.zt.service.UserService;
@@ -22,7 +25,10 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public List<User> findAllUser() {
-		return (List<User>) dao.findAllUser();
+	public PageInfo<User> findAllUser(int pageNum, int pageSize) {
+		PageHelper.startPage(pageNum, pageSize);
+		List<User> users = dao.findAllUser(pageNum, pageSize);
+		PageInfo<User> pageInfo = new PageInfo<User>(users);
+		return pageInfo;
 	}
 }

@@ -27,6 +27,12 @@
 								<li> <a class="multitabs" href="user/userInfo">用户管理</a> </li>
 							</ul>
 						</li>
+						<li class="nav-item nav-item-has-subnav">
+							<a href="javascript:void(0)"><i class="mdi mdi-palette"></i> <span>Druid</span></a>
+							<ul class="nav nav-subnav">
+								<li> <a class="multitabs" href="druid">druid</a> </li>
+							</ul>
+						</li>
 					</ul>
 				</nav>
 			</div>

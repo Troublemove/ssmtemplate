@@ -1,7 +1,5 @@
 package cn.zt.controller.user;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.apache.logging.log4j.LogManager;
@@ -10,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.github.pagehelper.PageInfo;
 
 import cn.zt.entity.User;
 import cn.zt.service.UserService;
@@ -32,13 +32,15 @@ public class UserController {
 	 */
 	@ResponseBody
 	@RequestMapping(value="/userInfo")
-	public ModelAndView userInfo() {
-		log.info("login to 首页");
+	public ModelAndView userInfo(PageInfo<?> pageInfo) {
 		ModelAndView mv = new ModelAndView();
+		int pageNum  = (pageInfo.getPageNum() == 0)? 1 : pageInfo.getPageNum();
+		int pageSize  = (pageInfo.getPageSize() == 0)? 10 : pageInfo.getPageSize();
 		
-		List<User> user = userService.findAllUser();
+		PageInfo<User> user = userService.findAllUser(pageNum, pageSize);
 		
-		mv.addObject("userList", user);
+		mv.addObject("pageInfo", user);
+		mv.addObject("userList", user.getList());
 		mv.setViewName("user/userInfo");
         return mv;
 	}

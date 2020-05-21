@@ -1,7 +1,10 @@
 body {
 	padding: 10px;
-    background: #f4f5f9;
 }
-table th td{
-	text-align: center;
+.table{
+    text-align: center;
+}
+.table > td, th {
+	vertical-align: middle;
+    text-align: center;
 }

@@ -7,6 +7,7 @@
     <%@include file="/WEB-INF/jsp/base/basetag.jsp" %>
 	<title>用户管理</title>
 	
+	<link rel="stylesheet" href="static/css/base/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="static/css/user/user.css">
 </head>
 <body>
@@ -39,5 +40,55 @@
 			</tbody>
 		</table>
 	</div>
+	
+	<!-- 分页 -->
+	<div id="example">
+		<div id="pageLimit"></div>
+	</div>
+	<input type="hidden" id="pageNum" name="pageNum" value="${pageInfo.pageNum}" /> 
+	<input type="hidden" id="pages" name="pages" value="${pageInfo.pages}" />
+	
+	<script type="text/javascript">
+		$('#pageLimit').bootstrapPaginator({
+			currentPage : $("#pageNum").val(),
+			totalPages : $("#pages").val(),
+			size : "normal",
+			bootstrapMajorVersion : 2,
+			alignment : "center",
+			numberOfPages : 5,
+			itemTexts : function(type, page, current) {
+				switch (type) {
+				case "first":
+					return "首页";
+				case "prev":
+					return "上一页";
+				case "next":
+					return "下一页";
+				case "last":
+					return "末页";
+				case "page":
+					return page;
+				}
+			},
+			tooltipTitles: function (type, page, current) {
+	            switch (type) {
+	            case "first":
+	                return "首页";
+	            case "prev":
+	                return "上一页";
+	            case "next":
+	                return "下一页";
+	            case "last":
+	                return "末页";
+	            case "page":
+	                return (page === current) ? "当前第 " + page + " 页" : "跳转到第 " + page + " 页";
+	            }
+	        },
+			onPageClicked : function(event, originalEvent, type, page) {//给每个页眉绑定一个事件，其实就是ajax请求，其中page变量为当前点击的页上的数字。
+				if ($("#pageNum").val() != page)
+					window.location.href = "user/userInfo?pageNum=" + page;
+			}
+		});
+	</script>
 </body>
 </html>

@@ -7,7 +7,11 @@
 	<select id="findByUsername" parameterType="string" resultType="User">
 		SELECT * FROM user WHERE username = #{username}
 	</select>
-	
+	<!-- 
+	<select id="findAllUser" parameterType="Integer" resultType="User">
+		select * from user limit #{pageNum} , #{pageSize}
+	</select>
+	 -->
 	<select id="findAllUser" resultType="User">
 		select * from user
 	</select>
