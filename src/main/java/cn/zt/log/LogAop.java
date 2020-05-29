@@ -2,6 +2,7 @@ package cn.zt.log;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -10,7 +11,13 @@ import org.springframework.stereotype.Component;
 
 /**
  * 日志AOP
- *
+ *	执行顺序
+ *	around before advice
+ *	before advice
+ *	target method 执行
+ *	around after advice
+ *	after advice
+ *	afterReturning
  */
 @Component
 @Aspect
@@ -34,15 +41,17 @@ public class LogAop {
 		System.out.println("beforeAdvice");
 	}
 	
-	@Before("logPoint()")
+	@After("logPoint()")
 	public void afterAdvice() {
 		System.out.println("afterAdvice");
 	}
 	
 	@Around("logPoint()")
-	public void around(JoinPoint joinPoint) throws Throwable {
+	public Object around(ProceedingJoinPoint pjp) throws Throwable {
+		String targetName = pjp.getTarget().getClass().getName();
+		String methodName = pjp.getSignature().getName();
+		System.out.println(targetName + "   ++++   " + methodName);
 		System.out.println("注解类型环绕通知..环绕前");
-		((ProceedingJoinPoint) joinPoint).proceed();
-		System.out.println("注解类型环绕通知..环绕后");
+		return pjp.proceed();
 	}
 }

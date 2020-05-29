@@ -3,23 +3,28 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:task="http://www.springframework.org/schema/task"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans  
                         http://www.springframework.org/schema/beans/spring-beans-3.1.xsd  
                         http://www.springframework.org/schema/aop
                         http://www.springframework.org/schema/aop/spring-aop.xsd
+                        http://www.springframework.org/schema/task
+                        http://www.springframework.org/schema/task/spring-task-4.0.xsd
                         http://www.springframework.org/schema/context  
                         http://www.springframework.org/schema/context/spring-context-3.1.xsd  
                         http://www.springframework.org/schema/mvc  
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
                         
 	<!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
-	<!-- <context:component-scan base-package="cn.zt.controller" /> -->
-	<context:component-scan base-package="cn.zt"></context:component-scan>
+	<context:component-scan base-package="cn.zt.controller" />
 	
 	<!-- 开启SpringMVC注解模式 -->
 	<mvc:annotation-driven/>
+	
+	<!-- shedule-task 定时任务 -->
+	<task:annotation-driven/>
 	
 	<!-- 静态资源默认servlet配置 -->
 	<mvc:default-servlet-handler/>
@@ -35,7 +40,7 @@
 	<!-- 开启AOP注解扫描 -->
 	<aop:aspectj-autoproxy proxy-target-class="true" />
 	<!--切面-->
-	<bean id="LogAop" class="cn.zt.log.LogAop"></bean>
+	<!-- <bean id="LogAop" class="cn.zt.log.LogAop"></bean> -->
 	
 	<!--避免IE执行AJAX时，返回JSON出现下载文件 -->
 	<!-- <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
