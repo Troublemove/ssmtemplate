@@ -28,6 +28,7 @@
             	/fonts/** = anon
             	/img/** = anon
                 /login = anon
+                /api-docs = anon
                 /logout = logout
                 /* = authc
             </value>

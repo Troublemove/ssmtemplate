@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,12 +14,16 @@ import com.github.pagehelper.PageInfo;
 
 import cn.zt.entity.User;
 import cn.zt.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * 用户控制器
  */
 @Controller
 @RequestMapping(value = "/user")
+@CrossOrigin
+@Api(value = "user的操作类", description = "用户类")
 public class UserController {
 
 	private static Logger log = LogManager.getLogger(UserController.class);
@@ -32,6 +37,7 @@ public class UserController {
 	 */
 	@ResponseBody
 	@RequestMapping(value="/userInfo")
+	@ApiOperation(value = "根据id查询学生信息", notes = "查询学生", httpMethod = "POST", response = ModelAndView.class)
 	public ModelAndView userInfo(PageInfo<?> pageInfo) {
 		ModelAndView mv = new ModelAndView();
 		int pageNum  = (pageInfo.getPageNum() == 0)? 1 : pageInfo.getPageNum();

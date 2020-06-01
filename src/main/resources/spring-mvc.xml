@@ -29,6 +29,16 @@
 	<!-- 静态资源默认servlet配置 -->
 	<mvc:default-servlet-handler/>
 	<mvc:resources mapping="/static/**" location="/static/"/>
+	<mvc:resources mapping="/swagger/**" location="/swagger/"/>
+	
+	<!-- 接口跨域配置 -->
+	<mvc:cors>
+		<!-- allowed-methods="*" --> <!-- 表示所有请求都有效 -->
+		<mvc:mapping path="/**" allowed-origins="*"
+			allowed-methods="POST, GET, OPTIONS, DELETE, PUT"
+			allowed-headers="Content-Type, Access-Control-Allow-*, Authorization, X-Requested-With"
+			allow-credentials="true" />
+	</mvc:cors>
 	
 	<!-- 定义跳转的文件的前后缀 ，视图模式配置 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -41,6 +51,9 @@
 	<aop:aspectj-autoproxy proxy-target-class="true" />
 	<!--切面-->
 	<!-- <bean id="LogAop" class="cn.zt.log.LogAop"></bean> -->
+	
+	<!-- swagger -->
+	<bean class="cn.zt.config.SwaggerConfig" />
 	
 	<!--避免IE执行AJAX时，返回JSON出现下载文件 -->
 	<!-- <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">

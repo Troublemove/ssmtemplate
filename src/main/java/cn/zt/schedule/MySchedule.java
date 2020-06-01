@@ -10,7 +10,7 @@ public class MySchedule {
 	
 	private static Logger log = LogManager.getLogger(MySchedule.class);
 	
-	@Scheduled(cron="*/10 * * * * *")
+	@Scheduled(cron="* * 1 * * *")
 	public void aa() throws Exception {
 		log.info(" =========  shedule -- aa  ========== ");
 	}
