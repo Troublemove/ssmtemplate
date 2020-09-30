@@ -56,6 +56,8 @@ public class MyRealm extends AuthorizingRealm {
 		User user = userDao.findByUsername((String) principal);
 		if (user != null) {
 			pass = user.getPassword();
+		} else {
+			pass = "pass wrong!";
 		}
 
 		// 当前 Realm 的name

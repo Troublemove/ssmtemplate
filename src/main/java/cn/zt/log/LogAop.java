@@ -38,20 +38,20 @@ public class LogAop {
 	
 	@Before("logPoint()")
 	public void beforeAdvice() {
-		System.out.println("beforeAdvice");
+//		System.out.println("beforeAdvice");
 	}
 	
 	@After("logPoint()")
 	public void afterAdvice() {
-		System.out.println("afterAdvice");
+//		System.out.println("afterAdvice");
 	}
 	
 	@Around("logPoint()")
 	public Object around(ProceedingJoinPoint pjp) throws Throwable {
 		String targetName = pjp.getTarget().getClass().getName();
 		String methodName = pjp.getSignature().getName();
-		System.out.println(targetName + "   ++++   " + methodName);
-		System.out.println("注解类型环绕通知..环绕前");
+//		System.out.println(targetName + "   ++++   " + methodName);
+//		System.out.println("注解类型环绕通知..环绕前");
 		return pjp.proceed();
 	}
 }

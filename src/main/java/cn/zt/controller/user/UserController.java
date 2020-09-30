@@ -39,6 +39,7 @@ public class UserController {
 	@RequestMapping(value="/userInfo")
 	@ApiOperation(value = "根据id查询学生信息", notes = "查询学生", httpMethod = "POST", response = ModelAndView.class)
 	public ModelAndView userInfo(PageInfo<?> pageInfo) {
+		log.info("根据id查询学生信息");
 		ModelAndView mv = new ModelAndView();
 		int pageNum  = (pageInfo.getPageNum() == 0)? 1 : pageInfo.getPageNum();
 		int pageSize  = (pageInfo.getPageSize() == 0)? 10 : pageInfo.getPageSize();

@@ -24,7 +24,7 @@
 					<div id="loginForm">
 						<div class="input_outer">
 							<span class="u_user"></span>
-							<input name="logname" class="text" value="" type="text" placeholder="请输入用户名" data-toggle="tooltip" data-placement="right" title="用户不存在">
+							<input name="logname" class="text" value="<%=session.getAttribute("logname1")%>" type="text" placeholder="请输入用户名"  data-toggle="tooltip" data-placement="right" title="用户不存在">
 						</div>
 						<div class="input_outer">
 							<span class="us_uer"></span>
@@ -51,5 +51,6 @@
 	<script type="text/javascript" src="static/js/login/rAF.js"></script>
 	<script type="text/javascript" src="static/js/login/bgpoint.js"></script>
 	<script type="text/javascript" src="static/js/login/login.js"></script>
+	
 </body>
 </html>

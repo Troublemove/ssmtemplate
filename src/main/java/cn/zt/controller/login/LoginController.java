@@ -45,31 +45,36 @@ public class LoginController {
 		HttpSession session = request.getSession();
 		Subject subject = SecurityUtils.getSubject();
 		// 过期时间 ms	-1000L(永不过期)
-		SecurityUtils.getSubject().getSession().setTimeout(1000 * 60 * 30);
+		SecurityUtils.getSubject().getSession().setTimeout(1000 * 60 * 10);
 		
-		UsernamePasswordToken token = new UsernamePasswordToken(userName, userPass);
-		
-		boolean res = true;
-		try {
-			subject.login(token);
-		} catch (AuthenticationException e) {
-			res = false;
-			System.out.println(e.getMessage());
-		}
-		session.setAttribute("currentUser", userName);
-		if (res) {
-			if (session.getAttribute(Constants.KAPTCHA_SESSION_KEY).equals(captcha)) {
-				log.info("login success");
-				session.removeAttribute(Constants.KAPTCHA_SESSION_KEY);
-				
+		// 先验证验证码
+		if (session.getAttribute(Constants.KAPTCHA_SESSION_KEY).equals(captcha)) {
+			log.info("captcha success");
+			
+			UsernamePasswordToken token = new UsernamePasswordToken(userName, userPass);
+			
+			boolean res = true;
+			try {
+				subject.login(token);
+				session.setAttribute("currentUser", userName);
+			} catch (AuthenticationException e) {
+				res = false;
+				log.error(e);
+			}
+			
+			session.setAttribute("logname1", userName);
+			session.removeAttribute(Constants.KAPTCHA_SESSION_KEY);
+			
+			if (res) {// 登录成功
 				ModelAndView mav = new ModelAndView();
 				mav.setViewName("redirect:/mainJsp");
 				return mav;
-			} else {
-				log.info("login falure");
+			} else {// 用户名或密码错误
+				log.error("error!");
 				return new ModelAndView("system/login");
 			}
-		} else {// 用户不存在
+		} else {
+			log.info("captcha wrong");
 			return new ModelAndView("system/login");
 		}
 		
