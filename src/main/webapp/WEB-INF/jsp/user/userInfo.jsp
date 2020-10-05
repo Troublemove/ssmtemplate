@@ -11,6 +11,14 @@
 	<link rel="stylesheet" type="text/css" href="static/css/user/user.css">
 </head>
 <body>
+	<!-- loading -->
+    <div id="loader-wrapper">
+		<div id="loader"></div>
+		<div class="loader-section section-left"></div>
+		<div class="loader-section section-right"></div>
+		<div id="load_title">正在加载中，请稍后</div>
+	</div>
+	<!-- 内容 -->
 	<div>
 		<table class="table table-bordered table-hover">
 			<thead>
@@ -49,6 +57,14 @@
 	<input type="hidden" id="pages" name="pages" value="${pageInfo.pages}" />
 	
 	<script type="text/javascript">
+		
+		window.onload = function () {
+			lightyear.loading('show');
+			setTimeout(function() {
+		        lightyear.loading('hide');
+		    }, 1000)
+		}
+		
 		$('#pageLimit').bootstrapPaginator({
 			currentPage : $("#pageNum").val(),
 			totalPages : $("#pages").val(),

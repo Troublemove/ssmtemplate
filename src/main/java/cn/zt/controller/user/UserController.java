@@ -45,7 +45,6 @@ public class UserController {
 		int pageSize  = (pageInfo.getPageSize() == 0)? 10 : pageInfo.getPageSize();
 		
 		PageInfo<User> user = userService.findAllUser(pageNum, pageSize);
-		
 		mv.addObject("pageInfo", user);
 		mv.addObject("userList", user.getList());
 		mv.setViewName("user/userInfo");

@@ -8,7 +8,7 @@
         <!-- 装配 securityManager -->
         <property name="securityManager" ref="securityManager" />
         <!-- 配置登陆页面 -->
-        <property name="loginUrl" value="/login" />
+        <property name="loginUrl" value="/index" />
         <!-- 登陆成功后的页面,可以不配置，直接通过代码进行处理 -->
         <property name="successUrl" value="/mainJsp" />
         <!-- 登录的用户访问了没有被授权的资源自动跳转到的页面 -->
@@ -27,7 +27,8 @@
             	/css/** = anon
             	/fonts/** = anon
             	/img/** = anon
-                /login = anon
+                /index = anon
+                /tologin = anon
                 /api-docs = anon
                 /logout = logout
                 /* = authc

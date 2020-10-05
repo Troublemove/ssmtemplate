@@ -14,12 +14,12 @@ public class IndexController {
 	private static Logger log = LogManager.getLogger(LoginController.class);
 	
 	/**
-	 * 首页
+	 * 首页展示
 	 * @return
 	 */
 	@RequestMapping(value="/index")
 	public ModelAndView toIndex() {
-		log.info("login to 首页");
+		log.info("login to 首页展示");
 		ModelAndView mv = new ModelAndView();
 		
 		mv.setViewName("system/index");

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="zh">
 <head>
 	<%@include file="/WEB-INF/jsp/base/basecss.jsp" %>
     <%@include file="/WEB-INF/jsp/base/basejs.jsp" %>
@@ -24,7 +24,7 @@
 					<div id="loginForm">
 						<div class="input_outer">
 							<span class="u_user"></span>
-							<input name="logname" class="text" value="<%=session.getAttribute("logname1")%>" type="text" placeholder="请输入用户名"  data-toggle="tooltip" data-placement="right" title="用户不存在">
+							<input name="logname" class="text" value="" type="text" placeholder="请输入用户名"  data-toggle="tooltip" data-placement="right" title="用户不存在">
 						</div>
 						<div class="input_outer">
 							<span class="us_uer"></span>
@@ -38,7 +38,7 @@
 								<img class="imgcode" src="captcha/captchaImage" width="45%" height="46px" style="margin-left:15px;">
 							</a>
 						</div>
-						<button class="btn btn-success btn-block" id="btnSubmit" onclick="tologin()" data-loading-text="登录中...">登录</button>
+						<button class="btn btn-success btn-block" id="btnSubmit" onclick="tologin()" data-loading-text="登录中..." autocomplete="off">登录</button>
 						<button class="btn btn-warning btn-block" id="btnRegister" onclick="toRegister">注册</button>
 					</div>
 				</div>

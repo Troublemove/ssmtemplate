@@ -51,17 +51,34 @@ function tologin() {
 
 		return false;
 	}
+	
+	var $btn = $('#btnSubmit').button('loading');
+	setTimeout(function() {
+		$btn.button("reset")
+	}, 500)
 
 	$.ajax({
 		type : "post",
-		url : basePath + "login",
+		url : basePath + "tologin",
 		data : {
 			"logname" : logname,
 			"logpass" : logpass,
 			"logcaptcha" : logcaptcha
 		},
 		success : function(data) {
-			window.location.href = 'mainJsp';
+			if (data.status == '200') {
+				window.location.href = basePath + 'mainJsp';
+			} else if (data.status == '250') {
+				lightyear.notify('验证码输入错误！', 'danger', 'animated bounceIn', 'animated bounceOut', 100, 'bottom', 'right');
+				$(".imgcode").attr("src", basePath + "captcha/captchaImage?s=" + Math.random());
+				$("input[name='logcaptcha']").val("").focus();
+			} else if (data.status == '300') {
+				lightyear.notify('用户名或密码输入错误！', 'danger', 'animated bounceIn', 'animated bounceOut', 100, 'bottom', 'right');
+				$("input[name='logname']").val("").focus();
+				$("input[name='logpass']").val("");
+				$("input[name='logcaptcha']").val("");
+				$(".imgcode").attr("src", basePath + "captcha/captchaImage?s=" + Math.random());
+			}
 		}
 	});
 }

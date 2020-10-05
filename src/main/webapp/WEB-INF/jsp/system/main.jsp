@@ -19,7 +19,7 @@
 	    	<div class="lyear-layout-sidebar-scroll">
 				<nav class="sidebar-main">
 					<ul class="nav nav-drawer">
-						<li class="nav-item active"> <a class="multitabs" href="http://www.baidu.com"><i class="mdi mdi-home"></i> <span>后台首页</span></a>
+						<li class="nav-item active"> <a class="multitabs" href="http://www.baidu.com"><i class="mdi mdi-home"></i> <span>首页</span></a>
 						</li>
 						<li class="nav-item nav-item-has-subnav">
 							<a href="javascript:void(0)"><i class="mdi mdi-palette"></i> <span>系统设置</span></a>
@@ -63,7 +63,7 @@
 						<li class="dropdown dropdown-profile">
 							<a href="javascript:void(0)" data-toggle="dropdown">
 								<!-- <img class="img-avatar img-avatar-48 m-r-10" src="images/users/avatar.jpg"/> -->
-								<span>Welcome! <shiro:principal property='currentUser'></shiro:principal> <span class="caret"></span></span>
+								<span>Welcome：${sessionScope.currentUser} <span class="caret"></span></span>
 							</a>
 							<ul class="dropdown-menu dropdown-menu-right">
 								<li> <a class="multitabs" data-url="lyear_pages_profile.html" href="javascript:void(0)"><i class="mdi mdi-account"></i>
@@ -79,43 +79,6 @@
 						<li class="dropdown dropdown-skin">
 							<span data-toggle="dropdown" class="icon-palette"><i class="mdi mdi-palette"></i></span>
 							<ul class="dropdown-menu dropdown-menu-right" data-stopPropagation="true">
-								<li class="drop-title">
-									<p>LOGO</p>
-								</li>
-								<li class="drop-skin-li clearfix">
-									<span class="inverse">
-										<input type="radio" name="logo_bg" value="default" id="logo_bg_1" checked>
-										<label for="logo_bg_1"></label>
-									</span>
-									<span>
-										<input type="radio" name="logo_bg" value="color_2" id="logo_bg_2">
-										<label for="logo_bg_2"></label>
-									</span>
-									<span>
-										<input type="radio" name="logo_bg" value="color_3" id="logo_bg_3">
-										<label for="logo_bg_3"></label>
-									</span>
-									<span>
-										<input type="radio" name="logo_bg" value="color_4" id="logo_bg_4">
-										<label for="logo_bg_4"></label>
-									</span>
-									<span>
-										<input type="radio" name="logo_bg" value="color_5" id="logo_bg_5">
-										<label for="logo_bg_5"></label>
-									</span>
-									<span>
-										<input type="radio" name="logo_bg" value="color_6" id="logo_bg_6">
-										<label for="logo_bg_6"></label>
-									</span>
-									<span>
-										<input type="radio" name="logo_bg" value="color_7" id="logo_bg_7">
-										<label for="logo_bg_7"></label>
-									</span>
-									<span>
-										<input type="radio" name="logo_bg" value="color_8" id="logo_bg_8">
-										<label for="logo_bg_8"></label>
-									</span>
-								</li>
 								<li class="drop-title">
 									<p>头部</p>
 								</li>
