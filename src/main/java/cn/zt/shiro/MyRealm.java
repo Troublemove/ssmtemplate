@@ -73,6 +73,7 @@ public class MyRealm extends AuthorizingRealm {
 	 * 
 	 * @see 比如Controller,使用时直接用HttpSession.getAttribute(key)就可以取到
 	 */
+	@SuppressWarnings("unused")
 	private void setSession(Object key, Object value) {
 		Subject currentUser = SecurityUtils.getSubject();
 		if (null != currentUser) {

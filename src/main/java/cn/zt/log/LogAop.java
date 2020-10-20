@@ -1,6 +1,5 @@
 package cn.zt.log;
 
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Around;
@@ -48,8 +47,8 @@ public class LogAop {
 	
 	@Around("logPoint()")
 	public Object around(ProceedingJoinPoint pjp) throws Throwable {
-		String targetName = pjp.getTarget().getClass().getName();
-		String methodName = pjp.getSignature().getName();
+//		String targetName = pjp.getTarget().getClass().getName();
+//		String methodName = pjp.getSignature().getName();
 //		System.out.println(targetName + "   ++++   " + methodName);
 //		System.out.println("注解类型环绕通知..环绕前");
 		return pjp.proceed();
