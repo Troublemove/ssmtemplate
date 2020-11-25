@@ -31,6 +31,9 @@
 	<mvc:resources mapping="/static/**" location="/static/"/>
 	<mvc:resources mapping="/swagger/**" location="/swagger/"/>
 	
+	<!-- swagger -->
+	<bean class="cn.zt.config.SwaggerConfig" />
+	
 	<!-- 接口跨域配置 -->
 	<mvc:cors>
 		<!-- allowed-methods="*" --> <!-- 表示所有请求都有效 -->
@@ -51,9 +54,6 @@
 	<aop:aspectj-autoproxy proxy-target-class="true" />
 	<!--切面-->
 	<!-- <bean id="LogAop" class="cn.zt.log.LogAop"></bean> -->
-	
-	<!-- swagger -->
-	<bean class="cn.zt.config.SwaggerConfig" />
 	
 	<!--避免IE执行AJAX时，返回JSON出现下载文件 -->
 	<!-- <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">

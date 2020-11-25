@@ -19,12 +19,18 @@
 	    	<div class="lyear-layout-sidebar-scroll">
 				<nav class="sidebar-main">
 					<ul class="nav nav-drawer">
-						<li class="nav-item active"> <a class="multitabs" href="http://www.baidu.com"><i class="mdi mdi-home"></i> <span>首页</span></a>
+						<li class="nav-item active"> <a class="multitabs" href="system/index"><i class="mdi mdi-home"></i> <span>首页</span></a>
 						</li>
 						<li class="nav-item nav-item-has-subnav">
 							<a href="javascript:void(0)"><i class="mdi mdi-palette"></i> <span>系统设置</span></a>
 							<ul class="nav nav-subnav">
 								<li> <a class="multitabs" href="user/userInfo">用户管理</a> </li>
+							</ul>
+						</li>
+						<li class="nav-item nav-item-has-subnav">
+							<a href="javascript:void(0)"><i class="mdi mdi-palette"></i> <span>样例展示</span></a>
+							<ul class="nav nav-subnav">
+								<li> <a class="multitabs" href="example/waterfall">瀑布流</a> </li>
 							</ul>
 						</li>
 						<li class="nav-item nav-item-has-subnav">

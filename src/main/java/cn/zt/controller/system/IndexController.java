@@ -6,12 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import cn.zt.controller.login.LoginController;
-
 @Controller
 @RequestMapping(value="/system")
 public class IndexController {
-	private static Logger log = LogManager.getLogger(LoginController.class);
+	private static Logger log = LogManager.getLogger(IndexController.class);
 	
 	/**
 	 * 首页展示
