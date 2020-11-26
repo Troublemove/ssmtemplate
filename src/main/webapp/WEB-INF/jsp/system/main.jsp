@@ -31,6 +31,7 @@
 							<a href="javascript:void(0)"><i class="mdi mdi-palette"></i> <span>样例展示</span></a>
 							<ul class="nav nav-subnav">
 								<li> <a class="multitabs" href="example/waterfall">瀑布流</a> </li>
+								<li> <a class="multitabs" href="example/toDbBack">数据备份</a> </li>
 							</ul>
 						</li>
 						<li class="nav-item nav-item-has-subnav">

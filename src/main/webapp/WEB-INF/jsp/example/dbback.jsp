@@ -13,21 +13,40 @@
 </head>
 <body>
 	<div class="container-fluid">
-		
+		<div>
+			<span>输入导出文件夹</span>
+			<input id="out" type="text" value="" />
+		</div>
+		<div>
+			<button class="btn btn-primary" onclick="dbback()">确定</button>
+		</div>
 	</div>
 
 	<script type="text/javascript">
-		/* window.onload = function() {
+		function dbback(){
+			let dir = $("#out").val();
+			if (dir == "") {
+				lightyear.notify('请输入文件夹路径！', 'danger', 'animated bounceIn', 'animated bounceOut', 100, 'top', 'center');
+				$("#out").focus();
+				return false;
+			}
 			lightyear.loading('show');
-			setTimeout(function() {
-				lightyear.loading('hide');
-			}, 100)
-		} */
-		
-		$(function () {
-			
-		});
-		
+			$.ajax({
+				type : "post",
+				url : "<%=basePath%>dbback/dbback",
+				data : {
+					"out" : dir
+				},
+				success : function(data) {
+					lightyear.loading('hide');
+					if (data.status == '200') {
+						lightyear.notify('备份成功！', 'success', 'animated bounceIn', 'animated bounceOut', 100, 'top', 'center');
+					} else {
+						lightyear.notify('备份失败！', 'danger', 'animated bounceIn', 'animated bounceOut', 100, 'top', 'center');
+					}
+				}
+			});
+		}
 
 	</script>
 </body>

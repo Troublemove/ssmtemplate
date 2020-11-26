@@ -26,10 +26,10 @@ public class ExampleController {
 	}
 	
 	/**
-	 * 数据备份
+	 * 数据备份页面
 	 * @return
 	 */
-	@RequestMapping(value="/waterfall")
+	@RequestMapping(value="/toDbBack")
 	public ModelAndView toDbBack() {
 		log.info(" - 数据备份 - ");
 		ModelAndView mv = new ModelAndView();
